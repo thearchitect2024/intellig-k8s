@@ -1,0 +1,21 @@
+{
+  "name": "intellig-k8s",
+  "version": "1.0.0",
+  "description": "Lightweight web app for streaming live Kubernetes pod logs with real-time AI explanations",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "build": "npm run build -w frontend && npm run build -w backend",
+    "start": "npm run start -w backend",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules frontend/dist backend/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
